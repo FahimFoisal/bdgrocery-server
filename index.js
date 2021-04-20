@@ -22,8 +22,8 @@ client.connect(err => {
   const items = {name: 'apple2', price: 80, quantity: '1kg'};
   app.get('/products',(req,res) => {
     collection.find({}).toArray((err, documents) => {
-      // res.send(documents);
-      console.log(documents)
+      res.send(documents);
+      // console.log(documents)
     })
   })
   // app.post('/addEvents', (req,res) => {
@@ -43,4 +43,4 @@ client.connect(err => {
   console.log('database connected')
   
 });
-app.listen(5000, () => console.log('this is another side of the world'))
+app.listen(process.env.PORT || 5000, () => console.log('this is another side of the world'))
